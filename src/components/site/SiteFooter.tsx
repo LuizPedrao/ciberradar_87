@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "@/components/brand/Logo";
+import { SiteHeader } from "./SiteHeader";
 
 export function SiteFooter() {
   return (
@@ -25,11 +26,9 @@ export function SiteFooter() {
 export function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="dark flex min-h-screen flex-col bg-background text-foreground">
-      <SiteHeaderLazy />
+      <SiteHeader />
       <main className="flex-1">{children}</main>
       <SiteFooter />
     </div>
   );
 }
-
-import { SiteHeader as SiteHeaderLazy } from "./SiteHeader";
