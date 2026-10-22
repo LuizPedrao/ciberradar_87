@@ -14,7 +14,7 @@ import { onlyDigits, isValidIntlNumber } from "@/lib/whatsapp";
 
 export const Route = createFileRoute("/admin/configuracoes")({ component: Config });
 
-export const APP_VERSION = "1.0.0";
+const APP_VERSION = "1.0.0";
 
 function Config() {
   const qc = useQueryClient();

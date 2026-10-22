@@ -17,6 +17,12 @@ import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as ResultadoRouteImport } from './routes/resultado'
 import { Route as TermosRouteImport } from './routes/termos'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminClientesRouteImport } from './routes/admin.clientes'
+import { Route as AdminConfiguracoesRouteImport } from './routes/admin.configuracoes'
+import { Route as AdminDiagnosticosRouteImport } from './routes/admin.diagnosticos'
+import { Route as AdminEntregasRouteImport } from './routes/admin.entregas'
+import { Route as AdminLeadsRouteImport } from './routes/admin.leads'
+import { Route as AdminLembretesRouteImport } from './routes/admin.lembretes'
 import { Route as AdminLoginRouteImport } from './routes/admin_.login'
 
 const IndexRoute = IndexRouteImport.update({
@@ -59,6 +65,36 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminClientesRoute = AdminClientesRouteImport.update({
+  id: '/clientes',
+  path: '/clientes',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminConfiguracoesRoute = AdminConfiguracoesRouteImport.update({
+  id: '/configuracoes',
+  path: '/configuracoes',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminDiagnosticosRoute = AdminDiagnosticosRouteImport.update({
+  id: '/diagnosticos',
+  path: '/diagnosticos',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminEntregasRoute = AdminEntregasRouteImport.update({
+  id: '/entregas',
+  path: '/entregas',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminLeadsRoute = AdminLeadsRouteImport.update({
+  id: '/leads',
+  path: '/leads',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminLembretesRoute = AdminLembretesRouteImport.update({
+  id: '/lembretes',
+  path: '/lembretes',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/admin_/login',
   path: '/admin/login',
@@ -73,6 +109,12 @@ export interface FileRoutesByFullPath {
   '/privacidade': typeof PrivacidadeRoute
   '/resultado': typeof ResultadoRoute
   '/termos': typeof TermosRoute
+  '/admin/clientes': typeof AdminClientesRoute
+  '/admin/configuracoes': typeof AdminConfiguracoesRoute
+  '/admin/diagnosticos': typeof AdminDiagnosticosRoute
+  '/admin/entregas': typeof AdminEntregasRoute
+  '/admin/leads': typeof AdminLeadsRoute
+  '/admin/lembretes': typeof AdminLembretesRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/': typeof AdminIndexRoute
 }
@@ -83,6 +125,12 @@ export interface FileRoutesByTo {
   '/privacidade': typeof PrivacidadeRoute
   '/resultado': typeof ResultadoRoute
   '/termos': typeof TermosRoute
+  '/admin/clientes': typeof AdminClientesRoute
+  '/admin/configuracoes': typeof AdminConfiguracoesRoute
+  '/admin/diagnosticos': typeof AdminDiagnosticosRoute
+  '/admin/entregas': typeof AdminEntregasRoute
+  '/admin/leads': typeof AdminLeadsRoute
+  '/admin/lembretes': typeof AdminLembretesRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin': typeof AdminIndexRoute
 }
@@ -95,6 +143,12 @@ export interface FileRoutesById {
   '/privacidade': typeof PrivacidadeRoute
   '/resultado': typeof ResultadoRoute
   '/termos': typeof TermosRoute
+  '/admin/clientes': typeof AdminClientesRoute
+  '/admin/configuracoes': typeof AdminConfiguracoesRoute
+  '/admin/diagnosticos': typeof AdminDiagnosticosRoute
+  '/admin/entregas': typeof AdminEntregasRoute
+  '/admin/leads': typeof AdminLeadsRoute
+  '/admin/lembretes': typeof AdminLembretesRoute
   '/admin_/login': typeof AdminLoginRoute
   '/admin/': typeof AdminIndexRoute
 }
@@ -108,6 +162,12 @@ export interface FileRouteTypes {
     | '/privacidade'
     | '/resultado'
     | '/termos'
+    | '/admin/clientes'
+    | '/admin/configuracoes'
+    | '/admin/diagnosticos'
+    | '/admin/entregas'
+    | '/admin/leads'
+    | '/admin/lembretes'
     | '/admin/login'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
@@ -118,6 +178,12 @@ export interface FileRouteTypes {
     | '/privacidade'
     | '/resultado'
     | '/termos'
+    | '/admin/clientes'
+    | '/admin/configuracoes'
+    | '/admin/diagnosticos'
+    | '/admin/entregas'
+    | '/admin/leads'
+    | '/admin/lembretes'
     | '/admin/login'
     | '/admin'
   id:
@@ -129,6 +195,12 @@ export interface FileRouteTypes {
     | '/privacidade'
     | '/resultado'
     | '/termos'
+    | '/admin/clientes'
+    | '/admin/configuracoes'
+    | '/admin/diagnosticos'
+    | '/admin/entregas'
+    | '/admin/leads'
+    | '/admin/lembretes'
     | '/admin_/login'
     | '/admin/'
   fileRoutesById: FileRoutesById
@@ -202,6 +274,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/clientes': {
+      id: '/admin/clientes'
+      path: '/clientes'
+      fullPath: '/admin/clientes'
+      preLoaderRoute: typeof AdminClientesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/configuracoes': {
+      id: '/admin/configuracoes'
+      path: '/configuracoes'
+      fullPath: '/admin/configuracoes'
+      preLoaderRoute: typeof AdminConfiguracoesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/diagnosticos': {
+      id: '/admin/diagnosticos'
+      path: '/diagnosticos'
+      fullPath: '/admin/diagnosticos'
+      preLoaderRoute: typeof AdminDiagnosticosRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/entregas': {
+      id: '/admin/entregas'
+      path: '/entregas'
+      fullPath: '/admin/entregas'
+      preLoaderRoute: typeof AdminEntregasRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/leads': {
+      id: '/admin/leads'
+      path: '/leads'
+      fullPath: '/admin/leads'
+      preLoaderRoute: typeof AdminLeadsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/lembretes': {
+      id: '/admin/lembretes'
+      path: '/lembretes'
+      fullPath: '/admin/lembretes'
+      preLoaderRoute: typeof AdminLembretesRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin_/login': {
       id: '/admin_/login'
       path: '/admin/login'
@@ -213,10 +327,22 @@ declare module '@tanstack/react-router' {
 }
 
 interface AdminRouteChildren {
+  AdminClientesRoute: typeof AdminClientesRoute
+  AdminConfiguracoesRoute: typeof AdminConfiguracoesRoute
+  AdminDiagnosticosRoute: typeof AdminDiagnosticosRoute
+  AdminEntregasRoute: typeof AdminEntregasRoute
+  AdminLeadsRoute: typeof AdminLeadsRoute
+  AdminLembretesRoute: typeof AdminLembretesRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminClientesRoute: AdminClientesRoute,
+  AdminConfiguracoesRoute: AdminConfiguracoesRoute,
+  AdminDiagnosticosRoute: AdminDiagnosticosRoute,
+  AdminEntregasRoute: AdminEntregasRoute,
+  AdminLeadsRoute: AdminLeadsRoute,
+  AdminLembretesRoute: AdminLembretesRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 
