@@ -25,9 +25,10 @@ export const DELIVERABLE_STATUS: Record<DeliverableStatus, string> = {
 };
 export const DELIVERABLE_TYPES: [string, ...string[]] = ["Reunião de orientação", "Plano inicial de melhorias", "Checklist de segurança", "Relatório orientativo"];
 
-export function unwrap<T>(res: { data: T | null; error: { message: string } | null }): NonNullable<T> {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function unwrap<R extends { data: any; error: any }>(res: R): NonNullable<R["data"]> {
   if (res.error || res.data == null) throw new Error("Não foi possível concluir a operação.");
-  return res.data as NonNullable<T>;
+  return res.data;
 }
 
 export async function logActivity(action: string, entity_type: string, entity_id?: string) {

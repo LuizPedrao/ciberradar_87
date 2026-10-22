@@ -20,7 +20,7 @@ export function Panel({ className, children }: { className?: string; children: R
   return <div className={cn("rounded-xl border border-border bg-card shadow-card", className)}>{children}</div>;
 }
 
-export function EmptyState({ title, text }: { title: string; text?: string }) {
+export function EmptyState({ title, text }: { title: string; text?: string | undefined }) {
   return (
     <div className="flex flex-col items-center justify-center px-4 py-14 text-center">
       <span className="grid h-12 w-12 place-items-center rounded-full bg-accent text-accent-foreground"><Inbox className="h-5 w-5" /></span>

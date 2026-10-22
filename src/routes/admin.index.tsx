@@ -12,7 +12,7 @@ import { isValidIntlNumber } from "@/lib/whatsapp";
 export const Route = createFileRoute("/admin/")({ component: Dashboard });
 
 function monthKey(d: string) { return d.slice(0, 7); }
-function monthLabel(k: string) { const [y, m] = k.split("-"); return `${m}/${y.slice(2)}`; }
+function monthLabel(k: string) { const [y = "", m = ""] = k.split("-"); return `${m}/${y.slice(2)}`; }
 function lastMonths(n: number) {
   const out: string[] = []; const d = new Date(); d.setDate(1);
   for (let i = n - 1; i >= 0; i--) { const x = new Date(d.getFullYear(), d.getMonth() - i, 1); out.push(`${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, "0")}`); }

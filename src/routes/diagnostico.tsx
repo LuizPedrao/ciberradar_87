@@ -27,7 +27,7 @@ function Diagnostico() {
   const [answers, setAnswers] = useState<(Answer | undefined)[]>(Array(QUESTIONS.length).fill(undefined));
   const [error, setError] = useState(false);
   const [finishing, setFinishing] = useState(false);
-  const q = QUESTIONS[step];
+  const q = QUESTIONS[step]!;
   const current = answers[step];
   const answered = answers.filter(Boolean).length;
   const isLast = step === QUESTIONS.length - 1;

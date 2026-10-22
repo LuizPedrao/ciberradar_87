@@ -163,7 +163,7 @@ function Index() {
       <section id="faq" className="mx-auto max-w-3xl scroll-mt-20 px-4 pb-20">
         <h2 className="font-display text-3xl font-bold">Perguntas frequentes</h2>
         <Accordion type="single" collapsible className="mt-6">
-          {FAQ.map(([q, a]) => (
+          {(FAQ as [string, string][]).map(([q, a]) => (
             <AccordionItem key={q} value={q}>
               <AccordionTrigger className="text-left">{q}</AccordionTrigger>
               <AccordionContent className="text-muted-foreground">{a}</AccordionContent>
