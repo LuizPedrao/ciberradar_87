@@ -198,5 +198,5 @@ export function decodeAnswers(code: string | undefined): Answer[] | null {
 }
 
 export function answersToRecord(answers: Answer[]): Record<string, Answer> {
-  return Object.fromEntries(QUESTIONS.map((q, i) => [q.id, answers[i]]));
+  return Object.fromEntries(QUESTIONS.map((q, i) => [q.id, answers[i] as Answer]));
 }

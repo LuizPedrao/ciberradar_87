@@ -27,7 +27,7 @@ describe("recomendações", () => {
   it("MFA Não gera recomendação de MFA", () => {
     const a = all("sim");
     a[0] = "nao";
-    expect(buildResult(a).recommendations[0].text).toBe(
+    expect(buildResult(a).recommendations[0]?.text).toBe(
       "Priorize a ativação de autenticação multifator nos sistemas que oferecem esse recurso.",
     );
   });
@@ -42,7 +42,7 @@ describe("recomendações", () => {
   it("Não sei gera orientação de verificação", () => {
     const a = all("sim");
     a[4] = "nao_sei";
-    expect(buildResult(a).recommendations[0].text).toBe(
+    expect(buildResult(a).recommendations[0]?.text).toBe(
       "Verifique com o responsável pela tecnologia se esta prática já está implementada.",
     );
   });

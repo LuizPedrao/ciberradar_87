@@ -23,17 +23,17 @@ export const DELIVERABLE_STATUS: Record<DeliverableStatus, string> = {
   em_andamento: "Em andamento",
   concluido: "Concluído",
 };
-export const DELIVERABLE_TYPES = ["Reunião de orientação", "Plano inicial de melhorias", "Checklist de segurança", "Relatório orientativo"];
+export const DELIVERABLE_TYPES: [string, ...string[]] = ["Reunião de orientação", "Plano inicial de melhorias", "Checklist de segurança", "Relatório orientativo"];
 
-export function unwrap<T>(res: { data: T | null; error: { message: string } | null }): T {
-  if (res.error) throw new Error("Não foi possível concluir a operação.");
-  return res.data as T;
+export function unwrap<T>(res: { data: T | null; error: { message: string } | null }): NonNullable<T> {
+  if (res.error || res.data == null) throw new Error("Não foi possível concluir a operação.");
+  return res.data as NonNullable<T>;
 }
 
 export async function logActivity(action: string, entity_type: string, entity_id?: string) {
   const { data } = await supabase.auth.getUser();
   if (!data.user) return;
-  await supabase.from("activity_log").insert({ actor_id: data.user.id, action, entity_type, entity_id });
+  await supabase.from("activity_log").insert({ actor_id: data.user.id, action, entity_type, entity_id: entity_id ?? null });
 }
 
 export function fmtDate(v: string | null | undefined): string {
