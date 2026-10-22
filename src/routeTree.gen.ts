@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
+import { Route as PrivacidadeRouteImport } from './routes/privacidade'
+import { Route as ResultadoRouteImport } from './routes/resultado'
+import { Route as TermosRouteImport } from './routes/termos'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiagnosticoRoute = DiagnosticoRouteImport.update({
+  id: '/diagnostico',
+  path: '/diagnostico',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadeRoute = PrivacidadeRouteImport.update({
+  id: '/privacidade',
+  path: '/privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResultadoRoute = ResultadoRouteImport.update({
+  id: '/resultado',
+  path: '/resultado',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermosRoute = TermosRouteImport.update({
+  id: '/termos',
+  path: '/termos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/diagnostico': typeof DiagnosticoRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/resultado': typeof ResultadoRoute
+  '/termos': typeof TermosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/diagnostico': typeof DiagnosticoRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/resultado': typeof ResultadoRoute
+  '/termos': typeof TermosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
+  '/diagnostico': typeof DiagnosticoRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/resultado': typeof ResultadoRoute
+  '/termos': typeof TermosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contato'
+    | '/diagnostico'
+    | '/privacidade'
+    | '/resultado'
+    | '/termos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contato'
+    | '/diagnostico'
+    | '/privacidade'
+    | '/resultado'
+    | '/termos'
+  id:
+    | '__root__'
+    | '/'
+    | '/contato'
+    | '/diagnostico'
+    | '/privacidade'
+    | '/resultado'
+    | '/termos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContatoRoute: typeof ContatoRoute
+  DiagnosticoRoute: typeof DiagnosticoRoute
+  PrivacidadeRoute: typeof PrivacidadeRoute
+  ResultadoRoute: typeof ResultadoRoute
+  TermosRoute: typeof TermosRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diagnostico': {
+      id: '/diagnostico'
+      path: '/diagnostico'
+      fullPath: '/diagnostico'
+      preLoaderRoute: typeof DiagnosticoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidade': {
+      id: '/privacidade'
+      path: '/privacidade'
+      fullPath: '/privacidade'
+      preLoaderRoute: typeof PrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resultado': {
+      id: '/resultado'
+      path: '/resultado'
+      fullPath: '/resultado'
+      preLoaderRoute: typeof ResultadoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/termos': {
+      id: '/termos'
+      path: '/termos'
+      fullPath: '/termos'
+      preLoaderRoute: typeof TermosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContatoRoute: ContatoRoute,
+  DiagnosticoRoute: DiagnosticoRoute,
+  PrivacidadeRoute: PrivacidadeRoute,
+  ResultadoRoute: ResultadoRoute,
+  TermosRoute: TermosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
